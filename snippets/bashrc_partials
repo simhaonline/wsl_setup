@@ -1,0 +1,48 @@
+## Custom Bashrc Starts here
+
+#Setting Custom umask for better permissions
+umask 077
+
+#SSH alias to remove all keys, and kill the agent
+alias sk='ssh-add -D; ssh-agent -k'
+alias ll='ls -al'
+
+#Custom Prompt
+parse_git_user() {
+    git config --get user.name
+}
+export PS1="\[\e[36;40m\]\$(parse_git_user)\[\e[m\]:\[\e[35;40m\]\w\[\e[m\] \\$ "
+
+## SSH agent
+sshenv=~/.ssh/agent.env
+
+agent_load_sshenv () { test -f "$sshenv" && . "$sshenv" >| /dev/null ; }
+
+agent_start () {
+    (umask 077; ssh-agent >| "$sshenv")
+    . "$sshenv" >| /dev/null ; }
+
+agent_load_sshenv
+
+# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2= agent not running
+agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+
+if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+    agent_start
+    ssh-add
+elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+    ssh-add
+fi
+
+unset sshenv
+
+toggle () {
+    if [ $(git config --get user.name) == "personalusername" ]; then
+        git config --global user.name "workusernamer"
+        git config --global user.email "work@email.com"
+
+    else 
+        git config --global user.name "personalusername"
+        git config --global user.email "personal@email.com"
+    fi
+}
