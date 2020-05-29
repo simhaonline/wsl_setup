@@ -6,6 +6,7 @@ umask 077
 #SSH alias to remove all keys, and kill the agent
 alias sk='ssh-add -D; ssh-agent -k'
 alias ll='ls -al'
+alias exit='exit 0' #Forgive me Lord, for I have sinned.
 
 #Custom Prompt
 parse_git_user() {
