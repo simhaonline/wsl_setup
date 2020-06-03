@@ -2,4 +2,5 @@ set tabstop=4
 set expandtab
 set shiftwidth=4
 set shortmess=I
+set textwidth=80
 syntax on
