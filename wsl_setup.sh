@@ -1,18 +1,18 @@
 #!/bin/sh
-if [ -z $1 ] ; then
-    echo "Please supply Windows Username"
-    exit 0
-fi
 
-WIN_USERNAME=$1
-
-# Get SSH keys from Windows environment
+## WSL 2 specific things
+## Hard coded username r for the pre-existng Windows user and To-Be-Created Unix one
 umask 077
 if [ ! -d ~/.ssh ] ; then
-  cp -r /mnt/c/Users/$WIN_USERNAME/.ssh ~/
+  cp -r /mnt/c/Users/r/.ssh ~/
   chmod 600 ~/.ssh/config
   chmod 400 ~/.ssh/id*
 fi
+
+sudo cp ./snippets/wslconfig /mnt/c/Users/r/.wslconfig
+sudo cp ./snippets/wsl.conf /etc/wsl.conf
+
+## WSL 2 Specific things end here
 
 # Setup SSH agent, umask, aliases and prompt
 cat ./snippets/bashrc_partials >> ~/.bashrc
