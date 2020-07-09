@@ -11,3 +11,5 @@ include static binaries like `hugo` or bash scripts that simplify everyday work.
 
 The snippets directory contain fragments of code to be inserted in `~/.bashrc` and/or `~/.profile`,
 as well as config files like .vimrc and .tmux.conf.
+
+Ignore the Powershell stuff for now, it is half-baked and very Ubuntu centric.
