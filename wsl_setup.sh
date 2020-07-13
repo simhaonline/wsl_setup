@@ -27,7 +27,11 @@ sudo apt autoremove --purge -y
 sudo apt clean all
 ## Debian specific stuff ends here
 
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+rm $HOME/env
+sed -i 's/export PATH="$HOME\/.cargo\/bin:$PATH"/export PATH="$PATH:$HOME\/.cargo\/bin"/' $HOME/.profile
+sudo fstrim /
+
 # Making changes to SSH client config only after it is installed
-sudo sed -i 's/#   StrictHostKeyChecking ask/    StrictHostKeyChecking no/g' /etc/ssh/ssh_config
 sudo sed -i 's/HashKnownHosts yes/HashKnownHosts no/' /etc/ssh/ssh_config
 exit 0
