@@ -10,6 +10,8 @@ fi
 
 sudo cp ./snippets/wslconfig /mnt/c/Users/r/.wslconfig
 sudo cp ./snippets/wsl.conf /etc/wsl.conf
+rm /etc/resolv.conf
+cp ./snippets/resolv.conf /etc/resolv.conf
 ## WSL 2 Specific things end here
 
 cat ./snippets/bashrc_partials >> ~/.bashrc
