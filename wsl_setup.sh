@@ -28,7 +28,7 @@ sudo apt clean all
 ## Debian specific stuff ends here
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-rm $HOME/env
+rm $HOME/.cargo/env
 sed -i 's/export PATH="$HOME\/.cargo\/bin:$PATH"/export PATH="$PATH:$HOME\/.cargo\/bin"/' $HOME/.profile
 sudo fstrim /
 
