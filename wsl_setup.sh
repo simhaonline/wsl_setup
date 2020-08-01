@@ -8,21 +8,19 @@ if [ ! -d ~/.ssh ] ; then
   chmod 400 ~/.ssh/id*
 fi
 
-sudo cp ./snippets/wslconfig /mnt/c/Users/r/.wslconfig
-sudo cp ./snippets/wsl.conf /etc/wsl.conf
-rm /etc/resolv.conf
-cp ./snippets/resolv.conf /etc/resolv.conf
+sudo cp ./bash_snippets/wslconfig /mnt/c/Users/r/.wslconfig
+sudo cp ./bash_snippets/wsl.conf /etc/wsl.conf
 ## WSL 2 Specific things end here
 
-cat ./snippets/bashrc_partials >> ~/.bashrc
-cp ./snippets/vimrc ~/.vimrc
+cat ./bash_snippets/bashrc_partials >> ~/.bashrc
+cp ./bash_snippets/vimrc ~/.vimrc
 sed -i 's/HOME\/bin/HOME\/.bin/g' ~/.profile
 echo "echo \"$USER ALL=(ALL) NOPASSWD:ALL\" >> /etc/sudoers" | sudo bash
 
 ## Debian Specific stuff
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install curl wget tmux rsync vim openssh-client git man-db sshpass -y
+sudo apt install curl wget rsync vim openssh-client git man-db ansible sshpass -y
 sudo apt autoremove --purge -y
 sudo apt clean all
 ## Debian specific stuff ends here
