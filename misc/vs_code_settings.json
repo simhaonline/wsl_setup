@@ -1,49 +1,30 @@
 {
-    "$schema": "https://aka.ms/terminal-profiles-schema",
-    "defaultProfile": "{252e6d35-c9a9-5e5b-b255-5fa35a6f3077}",
-    "profiles":
-    {
-        "defaults":
-        {
-            "fontFace": "Cascadia Code",
-            "suppressApplicationTitle": true
-        },
-        "list":
-        [
-            {
-                "guid": "{252e6d35-c9a9-5e5b-b255-5fa35a6f3077}",
-                "hidden": false,
-                "name": "ubuntu2004",
-                "source": "Windows.Terminal.Wsl",
-                "startingDirectory": "\\\\wsl$\\ubuntu2004\\home\\r"
-            },
-            {
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "name": "Windows PowerShell",
-                "commandline": "powershell.exe",
-                "hidden": false
-            },
-            {
-                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "name": "cmd",
-                "commandline": "cmd.exe",
-                "hidden": false
-            },
-            {
-                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": true,
-                "name": "Azure Cloud Shell",
-                "source": "Windows.Terminal.Azure"
-            }
-        ]
+    "workbench.startupEditor": "newUntitledFile",
+    "extensions.ignoreRecommendations": true,
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
+    "editor.fontFamily": "Consolas, monospace",
+    "terminal.integrated.cursorStyle": "line",
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "editor.tabCompletion": "on",
+    "editor.detectIndentation": false,
+    "[yaml]": {
+    
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced"
     },
-    "schemes": [],
-    "keybindings":
-    [
-        { "command": {"action": "copy", "singleLine": false }, "keys": "ctrl+c" },
-        { "command": "paste", "keys": "ctrl+v" },
-        { "command": "find", "keys": "ctrl+shift+f" },
-        { "command": { "action": "splitPane", "split": "auto", "splitMode": "duplicate" }, "keys": "alt+shift+d" },
-        { "command": "newTab", "keys": ["ctrl+t"]}
-    ]
+    "editor.renderWhitespace": "all",
+    "window.zoomLevel": 0,
+    "workbench.activityBar.visible": true,
+    "terminal.integrated.drawBoldTextInBrightColors": false,
+    "editor.fontSize": 15,
+    "editor.wordWrap": "wordWrapColumn",
+    "[markdown]": {
+
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": false
+    },
+    "mdmath.delimiters": "brackets"
 }
+
